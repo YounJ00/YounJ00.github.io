@@ -20,7 +20,7 @@ last_modified_at: 2022-01-11
 하지만 이 코드를 그대로 git이나 다른 곳에 공유할 경우에 보안 문제가 생길 수 있다.<br>
 그래서 우리는 따로 .env 라는 파일을 만들어서 보안 문제를 해결하려고 한다.
 
-### .env 파일 생성
+### Step 1 : .env 파일 생성
 ![image](https://user-images.githubusercontent.com/91127380/148873021-79cc3a21-67bb-45fd-867c-dc581cb9f9c2.png)
 
 .env 파일을 생성 한 후 [REACT_APP_SOMETHING] 이런 식으로 앞에 REACRT_APP으로 시작 해 뒤에 이름을 붙여 환경변수를 만들어준다.
@@ -31,6 +31,7 @@ last_modified_at: 2022-01-11
 - REACT_APP_MESSAGIN_ID
 - REACT_APP_APP_ID
 
+### Step 2 : firebase.js 파일 수정
 그런다음 firebase.js 파일을 아래와 같이 변경해준다. 
 
 ~~~
@@ -46,6 +47,7 @@ const firebaseConfig = {
 
 ![image](https://user-images.githubusercontent.com/91127380/148898717-1634f61b-ca7f-4795-b6fc-87ac05c71756.png)
 
+### Step 3 : .gitignore 파일 수정
 여기서 .gitignore 파일에 .env를 추가해주면 실제 직접적인 나의 key값들은 보이지 않고, firebase.js 파일의 환경변수들만 보이게 된다.<br>
 ![image](https://user-images.githubusercontent.com/91127380/148901198-b1b1157d-7646-4028-adcd-43b087eec4f0.png)
 
