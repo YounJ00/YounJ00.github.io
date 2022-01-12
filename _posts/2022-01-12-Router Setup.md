@@ -1,5 +1,5 @@
 ---
-title:  "트위터 클론코딩(1)"
+title:  "트위터 클론코딩(3)"
 excerpt: ""
 
 categories:
@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2022-01-06
-last_modified_at: 2022-01-06
+date: 2022-01-12
+last_modified_at: 2022-01-12
 ---
 ## Router Setup
 우리는 이제 우리의 application의 구조를 잡아햐 한다.<br>
