@@ -120,7 +120,7 @@ npm install --save firebase@9.6.1
 ~~~
 
 그 다음 firebase.js 파일을 추가해주고 아래 코드를 넣어준다.
-~~~
+~~~javascript
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
