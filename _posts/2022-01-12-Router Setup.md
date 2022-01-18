@@ -113,3 +113,12 @@ import Home from "../routes/Home";
 앞에서 만든 AppRouter를 App.js에서 render해준다.
 ![image](https://user-images.githubusercontent.com/91127380/149092380-76fcaab4-3aa0-4cdf-9427-5c6be2a38ba0.png)
 
+서버를 실행해보면 Auth가 나타난 것을 볼 수 있다!!<br> 
+위에서 useState의 기본 값을 false로 해주었기 때문에 로그인 되지않은 상태인 Auth화면이 render되는 것을 확인할 수 있다.
+![image](https://user-images.githubusercontent.com/91127380/149886445-09de7f24-3590-4429-a5e5-00063950c00c.png)
+
+~~~javascript
+const [isLoggedIn, setIsLoggedIn] = useState(true);
+~~~
+반대로 useState의 기본 값을 true로 바꾸어준다면 home 화면이 render되어야 한다.
+![image](https://user-images.githubusercontent.com/91127380/149887269-01bdb963-b71b-4c92-b114-6c912af311a3.png)
