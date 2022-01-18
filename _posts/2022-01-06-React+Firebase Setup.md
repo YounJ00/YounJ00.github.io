@@ -1,5 +1,5 @@
 ---
-title:  "트위터 클론코딩(1)"
+title:  "트위터 클론코딩(1) - React+Firebase Setup"
 excerpt: ""
 
 categories:
