@@ -34,7 +34,7 @@ last_modified_at: 2022-01-11
 ### Step 2 : firebase.js 파일 수정
 그런다음 firebase.js 파일을 아래와 같이 변경해준다. 
 
-~~~
+~~~javascript
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
