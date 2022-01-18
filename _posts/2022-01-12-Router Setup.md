@@ -86,18 +86,18 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 ~~~javascript
 <Switch>
-                {isLoggedIn ? (
-                    <>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                    </> 
-                ) : ( 
-                    <Route exact path="/">
-                        <Auth /> 
-                    </Route> 
-                )}
-            </Switch>
+    {isLoggedIn ? (
+        <>
+            <Route exact path="/">
+                <Home />
+            </Route>
+        </> 
+    ) : ( 
+        <Route exact path="/">
+            <Auth /> 
+        </Route> 
+    )}
+</Switch>
 ~~~
 위 코드는 로그인이 되어있지않다면 <b>Auth화면</b>을 보여주고, 로그인이 되어있다면 <b>Home화면</b>을 보여주는 <b>Swith문이다.</b><br>
 <b>useState()에서 기본값을 false</b>로 해주었기 때문에 React를 실행하게 된다면 Auth화면이 보여질 것이다.
