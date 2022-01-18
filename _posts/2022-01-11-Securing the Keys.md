@@ -1,5 +1,5 @@
 ---
-title:  "트위터 클론코딩(2)"
+title:  "트위터 클론코딩(2) - Securing the Keys"
 excerpt: ""
 
 categories:
