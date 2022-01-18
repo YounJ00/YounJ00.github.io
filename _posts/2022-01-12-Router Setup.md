@@ -1,5 +1,5 @@
 ---
-title:  "트위터 클론코딩(3)"
+title:  "트위터 클론코딩(3) - Router Setup"
 excerpt: ""
 
 categories:
