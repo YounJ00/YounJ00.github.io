@@ -125,3 +125,83 @@ const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
 여기까지 우리는 로그인 여부를 판별핧 수 있게 되었다!! 다음으로는 Login Form을 만들어 볼 거다.!
 
 ## Login Form part One
+### Step 1 : Firebase Authentication 추가 설정
+먼저 firebase 콘솔에서 Authentication 섹션으로 이동하면 현재 아무 유저도 없다는 걸 볼 수 있다.<br>
+![image](https://user-images.githubusercontent.com/91127380/150290438-112678c9-f762-4d68-bcbd-448039bb7603.png)
+
+여기서 <b>'로그인 방법 설정'</b> 버튼을 눌러준다.<br>
+우리가 가진 선택지들 중에 <b>'이메일/비밀번호'</b>와 <b>'구글'</b>을 선택한 후 저장해준다.
+![image](https://user-images.githubusercontent.com/91127380/150291966-09ccd4fe-f7ef-4b9f-93ee-575ff2321f9f.png)
+![image](https://user-images.githubusercontent.com/91127380/150292309-2f8ab5e7-adb6-4a2e-8361-ac53c6aa5d5b.png)
+
+그리고 <b>'Github'</b>도 사용가능하다.<br>
+![image](https://user-images.githubusercontent.com/91127380/150293793-3e76530b-7dc1-4c40-919c-f0a7456d8db2.png)
+- Github를 사용하려면 먼저 Github에서 app을 설정해야한다.<br>
+- Github > Settings > Developer settings 으로 이동해준다.<br>
+- 그다음 OAuth Apps에서 'Register a new application'버튼을 클릭해 새로운 app을 생성해준다.
+
+![image](https://user-images.githubusercontent.com/91127380/150293231-03eaba64-7f41-4f0e-994a-6c533e04c7dd.png)
+'Homepage URL'과 'Authorization callback URL'에는 위에 Firebase 설정페이지 밑에 게시 된 URL을 복사해와 붙여준다.
+![image](https://user-images.githubusercontent.com/91127380/150295129-485cc4e5-a5b2-4d3a-83c5-d258876cfebb.png)
+![image](https://user-images.githubusercontent.com/91127380/150294261-0e8074ff-1f04-4188-81fb-b87b0fc1a196.png)
+
+다 입력했다면 'Register application' 버튼을 눌러 app을 만들어준다.<br>
+그러면 <b>'Client ID'</b>와 <b>'Client Secret'</b>이 발급될 텐데,<br> 
+이것을 사용해서 Firebase Authentication Github설정에 입력해준다.
+![image](https://user-images.githubusercontent.com/91127380/150296049-03b3ad07-9635-49ac-a639-674726fb2d8a.png)
+![image](https://user-images.githubusercontent.com/91127380/150296504-f7601f62-c7aa-4268-a61c-e9b20848ec3a.png)
+
+이렇게해서 Firebase Authentication 설정이 끝났다!!<br>
+이제 우리는 Login Form 페이지를 한 번 만들어 볼 거다.
+
+### Step 2 : Login Form Page (Auth.js)
+일단 Auth.js의 수정된 코드 먼저 보여주고 설명을 하겠다.
+~~~javascript
+import React, { useState } from "react";
+
+const Auth = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const onChange = (event) => {
+        const {
+            target : {name, value}
+        } = event;
+        if (name === "email") {
+            setEmail(value);
+        } else if (name === "password") {
+            setPassword(value);
+        }
+    };
+    const onSubmit = (event) => {
+        event.preventDefault();
+    };
+    return (
+        <div>
+            <form onSubmit={onSubmit}>
+                <input
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    required
+                    value={email}
+                    onChange={onChange}
+                />
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    required
+                    value={password}
+                    onChange={onChange}
+                />
+                <input type="submit" value="Log In" />
+            </form>
+            <div>
+                <button>Continue with Google</button>
+                <button>Continue with Github</button>
+            </div>
+        </div>
+    )
+}
+export default Auth;
+~~~
